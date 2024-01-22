@@ -18,42 +18,43 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         <a class="nav-link" href="form-daftar.php">Pendaftaran</a>
-        <a class="nav-link" href="form-daftar.php">Data guru</a>
       </div>
     </div>
   </div>
 </nav>
 <div class="container mt-4">
-    <h2>data guru</h2><br>
+    <h2>data siswa</h2><br>
     <a class="btn btn-primary" href="form-daftar.php" role="button">tambah data</a>
     <br><br>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID_gur</th> 
-                <th>Nama_guru</th> 
-                <th>Alamat</th>  
-                <th>jenis_kelamin</th>  
-                <th>no_tlp</th>
-                <th>email</th>
+                <th>ID</th> 
+                <th>Nama</th> 
+                <th>Alamat</th> 
+                <th>Jenis kelamin</th> 
+                <th>Agama</th> 
+                <th>Sekolah asal</th> 
                 <th>aksi</th> 
 </tr>
 </thead>
 <tbody>
     <?php
-    $sql ="SELECT*FROM daftarguru";
+    $sql ="SELECT*FROM pendaftaran";
     $query=mysqli_query($db, $sql);
-    while($daftarguru= mysqli_fetch_array($query)){
+    while($siswa= mysqli_fetch_array($query)){
         echo "<tr>";
-        echo "<td>".$daftarguru['id_guru']."</td>";
-        echo "<td>".$daftarguru['nama_guru']."</td>";
-        echo "<td>".$daftarguru['alamat']."</td>";
-        echo "<td>".$daftarguru['jenis_kelamin']."</td>";
-        echo "<td>".$daftarguru['no_tlp']."</td>";
-        echo "<td>".$daftarguru['email']."</td>";
+        echo "<td>".$siswa['id_pendaftaran']."</td>";
+        echo "<td>".$siswa['nama']."</td>";
+        echo "<td>".$siswa['alamat']."</td>";
+        echo "<td>".$siswa['jenis_kelamin']."</td>";
+        echo "<td>".$siswa['agama']."</td>";
+        echo "<td>".$siswa['sekolah_asal']."</td>";
+        echo "<td>".$siswa['notlp']."</td>";
+        echo "<td>".$siswa['email']."</td>";
         echo"<td>
-        <a href='index.php? edit=" . $daftarguru['id_guru']."' class='btn btn-warning'> edit</a>
-        <a href='index.php? delete=" . $daftarguru['id_guru']."' class='btn btn-danger'> delete</a>
+        <a href='index.php? edit=" . $siswa['id_pendaftaran']."' class='btn btn-warning'> edit</a>
+        <a href='index.php? delete=" . $siswa['id_pendaftaran']."' class='btn btn-danger'> delete</a>
         </td>";
         echo "</tr>";
     }
