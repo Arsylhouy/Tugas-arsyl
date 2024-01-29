@@ -17,56 +17,62 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-        <a class="nav-link" href="form-daftar.php">Pendaftaran</a>
+        <a class="nav-link" href="kelola.php">Pendaftaran</a>
       </div>
     </div>
   </div>
 </nav>
 <div class="container mt-4">
-    <h2>data siswa</h2><br>
-    <a class="btn btn-primary" href="form-daftar.php" role="button">tambah data</a>
+    <h2>Data Siswa</h2><br>
+    <a class="btn btn-primary" href="kelola.php" role="button">Tambah Data</a>
     <br><br>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th> 
-                <th>Nama</th> 
-                <th>Alamat</th> 
-                <th>Jenis kelamin</th> 
-                <th>Agama</th> 
-                <th>Sekolah asal</th> 
-                <th>aksi</th> 
-</tr>
-</thead>
-<tbody>
-    <?php
-    $sql ="SELECT*FROM pendaftaran";
-    $query=mysqli_query($db, $sql);
-    while($siswa= mysqli_fetch_array($query)){
-        echo "<tr>";
-        echo "<td>".$siswa['id_pendaftaran']."</td>";
-        echo "<td>".$siswa['nama']."</td>";
-        echo "<td>".$siswa['alamat']."</td>";
-        echo "<td>".$siswa['jenis_kelamin']."</td>";
-        echo "<td>".$siswa['agama']."</td>";
-        echo "<td>".$siswa['sekolah_asal']."</td>";
-        echo "<td>".$siswa['notlp']."</td>";
-        echo "<td>".$siswa['email']."</td>";
-        echo"<td>
-        <a href='index.php? edit=" . $siswa['id_pendaftaran']."' class='btn btn-warning'> edit</a>
-        <a href='index.php? delete=" . $siswa['id_pendaftaran']."' class='btn btn-danger'> delete</a>
-        </td>";
-        echo "</tr>";
-    }
-    ?>
-</tbody>
-
-    </table>
+                 <th>ID</th>
+                 <th>Nama</th>
+                 <th>Alamat</th>
+                 <th>Jenis Kelamin</th>
+                 <th>Agama</th>
+                 <th>Sekolah Asal</th>
+                 <th>Desa/kelurahan</th>
+                 <th>kecamatan</th>
+                 <th>kab/kota</th>
+                 <th>provinsi</th>
+                 <th>kode pos</th>
+                 <th>no telepon</th>
+                 <th>Email</th>
+                 <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $sql = "SELECT * FROM pendaftaran";
+            $query = mysqli_query($db, $sql);
+            while($siswa = mysqli_fetch_array($query)) {
+                echo "<tr>";
+                echo "<td>".$siswa['id_pendaftaran']."</td>";
+                echo "<td>".$siswa['nama']."</td>";
+                echo "<td>".$siswa['alamat']."</td>";
+                echo "<td>".$siswa['jenis_kelamin']."</td>";
+                echo "<td>".$siswa['agama']."</td>";
+                echo "<td>".$siswa['sekolah_asal']."</td>";
+                echo "<td>".$siswa['desa']."</td>";
+                echo "<td>".$siswa['kecamatan']."</td>";
+                echo "<td>".$siswa['kota']."</td>";
+                echo "<td>".$siswa['provinsi']."</td>";
+                echo "<td>".$siswa['kode_pos']."</td>";
+                echo "<td>".$siswa['to_tlp']."</td>";
+                echo "<td>".$siswa['email']."</td>";
+                echo "<td
+                        <a href='kelola.php?edit=" . $siswa['id_pendaftaran'] . "' class='btn btn-warning'>Edit</a>
+                        <a href='proses_pendaftaran.php?delete=" . $siswa['id_pendaftaran'] . "' class='btn btn-danger'>Delete</a>
+                    </td>";
+                    echo"</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
-        
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
